@@ -2,18 +2,23 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2/widget"
 )
 
 type Config struct {
-	App            fyne.App
-	InfoLog        *log.Logger
-	ErrorLog       *log.Logger
-	MainWindow     fyne.Window
-	PriceContainer *fyne.Container
+	App                 fyne.App
+	InfoLog             *log.Logger
+	ErrorLog            *log.Logger
+	MainWindow          fyne.Window
+	PriceContainer      *fyne.Container
+	ToolBar             *widget.Toolbar
+	PriceChartContainer *fyne.Container
+	HTTPClient          *http.Client
 }
 
 var myApp Config
@@ -22,6 +27,7 @@ func main() {
 	// create a fyne application
 	fyneApp := app.NewWithID("de.gocode.goldwatch.preferences")
 	myApp.App = fyneApp
+	myApp.HTTPClient = &http.Client{}
 
 	// create our loggers
 	myApp.InfoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
