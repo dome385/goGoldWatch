@@ -15,11 +15,39 @@ import (
 	"fyne.io/fyne/v2/container"
 )
 
-func (app *Config) pricesTab() *fyne.Container {
+func (app *Config) goldPricesTab() *fyne.Container {
 	chart := app.getChart()
 	chartContainer := container.NewVBox(chart)
 	app.PriceChartContainer = chartContainer
 	return chartContainer
+}
+
+func (app *Config) silverPricesTab() *fyne.Container {
+	chart := app.getSilverChart()
+	chartContainer := container.NewVBox(chart)
+	app.PriceChartContainer = chartContainer
+	return chartContainer
+
+}
+
+func (app *Config) getSilverChart() *canvas.Image {
+	apiURL := "https://goldprice.org/charts/silver_3d_b_o_usd_x.png"
+	var img *canvas.Image
+
+	err := app.downloadFile(apiURL, "silver.png")
+	if err != nil {
+		img = canvas.NewImageFromResource(resourceUnreachablePng)
+	} else {
+		img = canvas.NewImageFromFile("silver.png")
+	}
+	img.SetMinSize(fyne.Size{
+		Width:  770,
+		Height: 410,
+	})
+
+	img.FillMode = canvas.ImageFillOriginal
+
+	return img
 }
 
 func (app *Config) getChart() *canvas.Image {

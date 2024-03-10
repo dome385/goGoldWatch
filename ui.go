@@ -26,11 +26,13 @@ func (app *Config) makeUI() {
 	toolBar := app.getToolBar()
 	app.ToolBar = toolBar
 
-	priceTabContent := app.pricesTab()
+	priceTabContent := app.goldPricesTab()
+	silverPriceContent := app.silverPricesTab()
 
 	// get app tabs
 	tabs := container.NewAppTabs(
-		container.NewTabItemWithIcon("Prices", theme.HomeIcon(), priceTabContent),
+		container.NewTabItemWithIcon("Gold Chart", theme.HomeIcon(), priceTabContent),
+		container.NewTabItemWithIcon("Silver Chart", theme.WarningIcon(), silverPriceContent),
 		container.NewTabItemWithIcon("Holdings", theme.InfoIcon(), canvas.NewText("Holdings content goes here", nil)),
 	)
 
