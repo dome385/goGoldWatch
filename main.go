@@ -32,6 +32,7 @@ func main() {
 	// create our loggers
 	myApp.InfoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	myApp.ErrorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
+
 	// open a connection to the database
 
 	// create a database repository
