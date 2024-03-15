@@ -16,7 +16,7 @@ type Repository interface {
 	AllHoldings() ([]Holdings, error)
 	GetHoldingByID(id int) (*Holdings, error)
 	UpdateHolding(id int64, updated Holdings) error
-	DeleteHoldings(id int64) error
+	DeleteHolding(id int64) error
 }
 
 type Holdings struct {
