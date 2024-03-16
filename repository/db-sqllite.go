@@ -22,7 +22,7 @@ func (repo *SQLiteRepository) Migrate() error {
 		id integer primary key autoincrement,
 		amount real not null,
 		purchase_date integer not null,
-		purchasse_price integer not null);
+		purchase_price integer not null);
 	`
 
 	_, err := repo.Conn.Exec(query)
@@ -123,7 +123,7 @@ func (repo *SQLiteRepository) UpdateHolding(id int64, updated Holdings) error {
 }
 
 func (repo *SQLiteRepository) DeleteHolding(id int64) error {
-	res, err := repo.Conn.Exec("delete from holdings where id = ?", id)
+	res, err := repo.Conn.Exec("Delete from holdings where id = ?", id)
 	if err != nil {
 		return err
 	}

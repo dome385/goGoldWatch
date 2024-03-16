@@ -7,7 +7,7 @@ import (
 
 var (
 	errUpdateFailed = errors.New("updated failed")
-	errDelteFailed  = errors.New("delete failed")
+	errDeleteFailed = errors.New("delete failed")
 )
 
 type Repository interface {
