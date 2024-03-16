@@ -1,3 +1,5 @@
+![](https://github.com/dome385/goGoldWatch/blob/main/ExampleGIF.gif)
+
 # Gold & Silber Portfolio Manager
 
 Der "Gold & Silber Portfolio Manager" ist eine Desktop-Anwendung, die mit dem Fyne-Toolkit für die Go-Programmiersprache entwickelt wurde. 
