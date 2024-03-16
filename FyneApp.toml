@@ -1,0 +1,8 @@
+Website = "https://github.com/dome385/goGoldWatch"
+
+[Details]
+  Icon = "Icon.png"
+  Name = "Gold & Silver Portfolio Manager"
+  ID = "de.gocode.goldwatch.preferences"
+  Version = "1.0.0"
+  Build = 2

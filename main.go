@@ -15,17 +15,20 @@ import (
 )
 
 type Config struct {
-	App                 fyne.App
-	InfoLog             *log.Logger
-	ErrorLog            *log.Logger
-	DB                  repository.Repository
-	MainWindow          fyne.Window
-	PriceContainer      *fyne.Container
-	ToolBar             *widget.Toolbar
-	PriceChartContainer *fyne.Container
-	Holdings            [][]interface{}
-	HoldingsTable       *widget.Table
-	HTTPClient          *http.Client
+	App                            fyne.App
+	InfoLog                        *log.Logger
+	ErrorLog                       *log.Logger
+	DB                             repository.Repository
+	MainWindow                     fyne.Window
+	PriceContainer                 *fyne.Container
+	ToolBar                        *widget.Toolbar
+	PriceChartContainer            *fyne.Container
+	Holdings                       [][]interface{}
+	HoldingsTable                  *widget.Table
+	HTTPClient                     *http.Client
+	AddHoldingsPurchaseAmountEntry *widget.Entry
+	AddHoldingsPurchaseDateEntry   *widget.Entry
+	AddHoldingsPurchasePriceEntry  *widget.Entry
 }
 
 func main() {
@@ -48,7 +51,7 @@ func main() {
 	myApp.setupDB(sqlDB)
 
 	// create and size a fyne window
-	myApp.MainWindow = fyneApp.NewWindow("GoGoldWatch")
+	myApp.MainWindow = fyneApp.NewWindow("Gold & Silber Portfolio Manager")
 	myApp.MainWindow.Resize(fyne.NewSize(770, 410))
 	myApp.MainWindow.SetFixedSize(true)
 	myApp.MainWindow.SetMaster()
